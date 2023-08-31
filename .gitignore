@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/BlogSiteAPI.Web/.vs/BlogSiteAPI.Web/v17
+/BlogSiteAPI.Web/BlogSiteAPI.Web/obj
+/BlogSiteAPI.Web/BlogSiteAPI.Web/bin/Debug/net6.0
