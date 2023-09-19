@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BlogSiteAPI.Respository.Models;
 
 namespace BlogSiteAPI.Respository.Interfaces
 {
-    internal interface IBlogRepository
+    public interface IBlogRepository
     {
+        Task<List<Blog>> GetBlogList();
     }
 }

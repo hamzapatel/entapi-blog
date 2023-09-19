@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BlogSiteAPI.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogSiteAPI.Web.Controllers
@@ -8,10 +8,18 @@ namespace BlogSiteAPI.Web.Controllers
     [ApiController]
     public class UserBlogController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetAllBllogs()
+        private readonly IBlogService blogService;
+
+        public UserBlogController(IBlogService _blogService)
         {
-            return Ok("Hello World");
+            blogService = _blogService;
+        }
+
+        [HttpGet("bloglist")]
+        public async Task<IActionResult> GetBlogList()
+        {
+            var result = await blogService.GetBlogList();
+            return Ok(result);
         }
     }
 }

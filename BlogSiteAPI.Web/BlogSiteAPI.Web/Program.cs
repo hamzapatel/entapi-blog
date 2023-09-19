@@ -1,7 +1,17 @@
+using BlogSiteAPI.Respository.Implementation;
+using BlogSiteAPI.Respository.Interfaces;
+using BlogSiteAPI.Respository.Models;
+using BlogSiteAPI.Service.Implementation;
+using BlogSiteAPI.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.ConfigureServices((hostContext, services) =>{
+    services.AddScoped<IBlogService, BlogService>();
+    services.AddScoped<IBlogRepository, BlogRepository>();
+    services.AddSingleton<TechblogsContext, TechblogsContext>();
+});
 // Add services to the container.
 
 builder.Services.AddControllers();
