@@ -1,4 +1,4 @@
-﻿using BlogSiteAPI.Respository.Interfaces;
+﻿using BlogSiteAPI.Repository.Interfaces;
 using BlogSiteAPI.Service.Interfaces;
 
 namespace BlogSiteAPI.Service.Implementation
@@ -14,7 +14,7 @@ namespace BlogSiteAPI.Service.Implementation
 
         public async Task<bool> GetBlogList()
         {
-            await blogRepository.GetBlogList();
+            await blogRepository.GetBlogListAsync();
             return true;
         }
     }

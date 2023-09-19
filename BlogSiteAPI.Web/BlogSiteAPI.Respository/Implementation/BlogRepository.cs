@@ -1,21 +1,21 @@
-﻿using BlogSiteAPI.Respository.Interfaces;
-using BlogSiteAPI.Respository.Models;
+﻿using BlogSiteAPI.Repository.Interfaces;
+using BlogSiteAPI.Repository.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BlogSiteAPI.Respository.Implementation
+namespace BlogSiteAPI.Repository.Implementation
 {
     public class BlogRepository : IBlogRepository
     {
-        private readonly TechblogsContext techblogsContext;
+        private readonly TechblogsContext _techblogsContext;
 
-        public BlogRepository(TechblogsContext _techblogsContext)
+        public BlogRepository(TechblogsContext techblogsContext)
         {
-            techblogsContext = _techblogsContext;
+            _techblogsContext = techblogsContext;
         }
 
-        public async Task<List<Blog>> GetBlogList()
+        public async Task<List<Blog>> GetBlogListAsync()
         {
-            return await techblogsContext.Blogs.ToListAsync();
+            return await _techblogsContext.Blogs.ToListAsync();
         }
     }
 }

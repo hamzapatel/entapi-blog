@@ -1,9 +1,9 @@
-﻿using BlogSiteAPI.Respository.Models;
+﻿using BlogSiteAPI.Repository.Models;
 
-namespace BlogSiteAPI.Respository.Interfaces
+namespace BlogSiteAPI.Repository.Interfaces
 {
     public interface IBlogRepository
     {
-        Task<List<Blog>> GetBlogList();
+        Task<List<Blog>> GetBlogListAsync();
     }
 }

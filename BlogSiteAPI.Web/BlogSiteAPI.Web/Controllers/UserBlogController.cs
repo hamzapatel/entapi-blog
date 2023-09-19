@@ -4,22 +4,22 @@ using Microsoft.AspNetCore.Mvc;
 namespace BlogSiteAPI.Web.Controllers
 {
     [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/v{version:apiVersion}/user-blogs")]
     [ApiController]
-    public class UserBlogController : ControllerBase
+    public class UserBlogsController : ControllerBase
     {
-        private readonly IBlogService blogService;
+        private readonly IBlogService _blogService;
 
-        public UserBlogController(IBlogService _blogService)
+        public UserBlogsController(IBlogService blogService)
         {
-            blogService = _blogService;
+            _blogService = blogService;
         }
 
-        [HttpGet("bloglist")]
+        [HttpGet("list")]
         public async Task<IActionResult> GetBlogList()
         {
-            var result = await blogService.GetBlogList();
-            return Ok(result);
+            var blogs = await _blogService.GetBlogList();
+            return Ok(blogs);
         }
     }
 }

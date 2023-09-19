@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace BlogSiteAPI.Respository.Models;
+namespace BlogSiteAPI.Repository.Models;
 
 public partial class TechblogsContext : DbContext
 {
@@ -30,10 +28,10 @@ public partial class TechblogsContext : DbContext
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Article).HasColumnName("article");
-            entity.Property(e => e.Authorname)
+            entity.Property(e => e.AuthorName)
                 .HasMaxLength(50)
                 .HasColumnName("authorname");
-            entity.Property(e => e.Blogname)
+            entity.Property(e => e.BlogName)
                 .HasMaxLength(50)
                 .HasColumnName("blogname");
             entity.Property(e => e.Category)
